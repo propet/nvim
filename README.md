@@ -15,8 +15,7 @@ Steps for replication, and reminder about settings and plugins.
 * slime (run python code from editor to ipython terminal using screen)
 * tpope/vim-commentary (comment lines with *gc*, and *gcc*)
 * tpope/vim-surround (change, create or remove surrounding elements like *{}*)
-* vim-airline (bottom bar with information)
-* vim-airline-themes (colorschemes also apply to the airline bar)
+* itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
 * nerdtree (show file structures) -> mapped to *C-n*
 * jiangmiao/auto-pairs (when open a paraenthesis or brackets , automatically create the other)
 * Other plugins related with web syntax and formating: (currently mapped C-f to beautify (indentations))

@@ -16,16 +16,15 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
   call dein#add('jiangmiao/auto-pairs')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-commentary')
   call dein#add('jpalardy/vim-slime')
   " web related plugins
-  " call dein#add('alvan/vim-closetag')
-  " call dein#add('hail2u/vim-css3-syntax')
-  " call dein#add('ap/vim-css-color')
-  " call dein#add('othree/html5.vim')
-  " call dein#add('maksimr/vim-jsbeautify')
+	  " call dein#add('alvan/vim-closetag')
+	  " call dein#add('hail2u/vim-css3-syntax')
+	  " call dein#add('ap/vim-css-color')
+	  " call dein#add('othree/html5.vim')
+	  " call dein#add('maksimr/vim-jsbeautify')
   " Colorscheme
   call dein#add('mhartington/oceanic-next')
 
@@ -82,6 +81,5 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Visuals
 colorscheme OceanicNext
+let g:lightline = {'colorscheme': 'one'}
 "set background=dark
-let g:airline_theme='oceanicnext'
-
