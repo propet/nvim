@@ -12,9 +12,9 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
+  call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('scrooloose/syntastic')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-commentary')
@@ -34,6 +34,8 @@ endif
 
 " basics
 filetype plugin indent on
+set shiftwidth=2
+set expandtab
 set smartindent
 syntax enable
 syntax on
@@ -56,6 +58,9 @@ let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
 
 " Syntastic
 let g:syntastic_python_checkers = ['python', 'flake8']
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
 
 " terminal
 set shell=bash
