@@ -12,6 +12,7 @@ Steps for replication, and reminder about settings and plugins.
 * Deoplete (for autocompletions)
   * deoplete-jedi
   * deoplete-clang
+* vim-gutentags (generate tags file automatically in a project (git, hg, .. project))
 * slime (run python code from editor to ipython terminal using screen)
 * tpope/vim-commentary (comment lines with *gc*, and *gcc*)
 * tpope/vim-surround (change, create or remove surrounding elements like *{}*)

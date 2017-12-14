@@ -12,6 +12,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
+  call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
@@ -58,9 +59,6 @@ let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
 
 " Syntastic
 let g:syntastic_python_checkers = ['python', 'flake8']
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = '-std=c++14'
 
 " terminal
 set shell=bash
