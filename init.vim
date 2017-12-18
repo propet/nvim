@@ -13,6 +13,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
   call dein#add('ludovicchabant/vim-gutentags')
+  call dein#add('lervag/vimtex')
   call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
@@ -86,3 +87,21 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 colorscheme OceanicNext
 let g:lightline = {'colorscheme': 'one'}
 "set background=dark
+
+" vimtext
+let g:vimtex_compiler_latexmk = {
+        \ 'backend' : 'nvim',
+        \ 'background' : 1,
+        \ 'build_dir' : '',
+        \ 'callback' : 1,
+        \ 'continuous' : 1,
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-pdf',
+        \   '-verbose',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \   '--shell-escape',
+        \ ],
+        \}
