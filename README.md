@@ -13,13 +13,13 @@ Steps for replication, and reminder about settings and plugins.
   * deoplete-jedi
   * deoplete-clang
 * vim-gutentags (generate tags file automatically in a project (git, hg, .. project))
-<<<<<<< HEAD
 * vimtex (vim continuous compilation, while editin in vim). In ubuntu, required to install aditional libs: *liwsynctex-dev* and *libgtk-3-dev*. Initiate compiling with *\ll*. The rest of shorcuts are available in <a>https://github.com/lervag/vimtex/wiki/usage</a>
+* ultisnips (snippets for faster coding). Directory with snippets: *snippets_ulti*. Mapped *:UltiSnipsEdit*, to *<C-^>*
 * slime (run python code from editor to ipython terminal using screen)
 * tpope/vim-commentary (comment lines with *gc*, and *gcc*)
 * tpope/vim-surround (change, create or remove surrounding elements like *{}*)
 * itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
-* nerdtree (show file structures) -> mapped to *C-n*
+* nerdtree (show file structures) -> toogle mapped to *C-n*
 * jiangmiao/auto-pairs (when open a paraenthesis or brackets , automatically create the other)
 * Other plugins related with web syntax and formating: (currently mapped C-f to beautify (indentations))
   * alvan/vim-closetag (like auto-pairs for html tags)

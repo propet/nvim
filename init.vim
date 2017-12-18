@@ -14,6 +14,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('zchee/deoplete-clang')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('lervag/vimtex')
+  call dein#add('SirVer/ultisnips')
   call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
@@ -105,3 +106,9 @@ let g:vimtex_compiler_latexmk = {
         \   '--shell-escape',
         \ ],
         \}
+
+" ULtiSnips
+let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
+let g:UltiSnipsSnippetDirectories=["snippets_ulti"]
+let g:UltiSnipsEditSplit = "vertical"
+map <C-^> :UltiSnipsEdit <CR>
