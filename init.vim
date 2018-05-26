@@ -42,7 +42,8 @@ set expandtab
 set smartindent
 syntax enable
 syntax on
-set number
+"set number "absolute line numbers
+set relativenumber
 set ruler
 set incsearch
 set nohlsearch

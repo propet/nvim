@@ -1,0 +1,55 @@
+snippet eq
+\begin{equation}
+${1:equation} 
+\end{equation}
+endsnippet
+
+snippet eq*
+\begin{equation*}
+  ${1:equation} 
+\end{equation*}
+endsnippet
+
+snippet al
+\begin{align}
+  ${1:align}
+\end{align}
+endsnippet
+
+snippet fig
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{${1:file}.png}
+  \caption{${2:caption}}
+  \label{fig:$1}
+\end{figure}
+endsnippet
+
+snippet subfig
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=1\textwidth]{${1:file}.eps}
+    \caption{${2:caption}}
+  \end{subfigure}%
+  \hspace{\fill}
+endsnippet
+
+
+snippet	\frac
+\frac{$1}{$2}
+endsnippet
+
+snippet lan
+\big\langle
+endsnippet
+
+snippet ran
+\big\rangle
+endsnippet
+
+snippet \lp
+\left( $1 \right)
+endsnippet
+
+snippet \ls
+\left[ $1 \right]
+endsnippet
