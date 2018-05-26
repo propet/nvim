@@ -43,7 +43,7 @@ set smartindent
 syntax enable
 syntax on
 "set number "absolute line numbers
-set relativenumber
+set number relativenumber
 set ruler
 set incsearch
 set nohlsearch
