@@ -16,8 +16,8 @@ Steps for replication, and reminder about settings and plugins.
   * deoplete-jedi
   * deoplete-clang
 * vim-gutentags (generate tags file automatically in a project (git, hg, .. project))
-* vimtex (vim continuous compilation, while editin in vim). In ubuntu, required to install aditional libs: *liwsynctex-dev* and *libgtk-3-dev*. Initiate compiling with *\ll* and view the produced pdf with *\lv*, *\lt* to see the table of contents. The rest of shorcuts are available in <a>https://github.com/lervag/vimtex/wiki/usage</a>. Install **zathura** as the pdf viewer, which has vim-like navigation.
-* ultisnips (snippets for faster coding). Directory with snippets: *snippets_ulti*. Mapped *:UltiSnipsEdit*, to *<C-^>*
+* vimtex (vim continuous compilation, while editin in vim). In ubuntu, required to install aditional libs: *liwsynctex-dev* and *libgtk-3-dev*. Initiate compiling with *\ll* and view the produced pdf with *\lv*, *\lt* to see the table of contents, *\le* to see the compilation errors or warnings. The rest of shorcuts are available in <a>https://github.com/lervag/vimtex/wiki/usage</a>. Install **zathura** as the pdf viewer, which has vim-like navigation.
+* ultisnips (snippets for faster coding). Directory with snippets: *snippets_ulti*. Mapped *:UltiSnipsEdit*, to *<C-^>* to create new snippets on the fly. Usage: write the abreviation in insert mode, and hit Tab. Then, you can write in the placeholders, and cycle through them, forwards or backward with <C-j> and <C-k>.
 * slime (run python code from editor to ipython terminal using screen)
 * tpope/vim-commentary (comment lines with *gc*, and *gcc*)
 * tpope/vim-surround (change, create or remove surrounding elements like *{}*)
