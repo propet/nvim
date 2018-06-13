@@ -73,7 +73,7 @@ let g:slime_default_config = {"sessionname": "yo", "windowname": "bash"}  "scree
 let g:slime_dont_ask_default = 1
 
 " Beautify html/css/js
-map <c-f> :call JsBeautify()<cr>
+map <C-S-f> :call JsBeautify()<cr>
 " or
 autocmd FileType javascript noremap <buffer>  <C-S-f> :call JsBeautify()<cr>
 " for json
