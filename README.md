@@ -24,6 +24,7 @@ Steps for replication, and reminder about settings and plugins.
 * itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
 * nerdtree (show file structures) -> toogle mapped to *C-n*
 * jiangmiao/auto-pairs (when open a paraenthesis or brackets , automatically create the other)
+* michaeljsmith/vim-indent-object (add idented text object, useful for python-like idented blocks of text. cii (changes inner identation). cai (changes inner identation included the top line)).
 * Other plugins related with web syntax and formating: (currently mapped C-f to beautify (indentations))
   * alvan/vim-closetag (like auto-pairs for html tags)
   * hail2u/vim-css3-syntax

@@ -22,6 +22,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-commentary')
   call dein#add('jpalardy/vim-slime')
+  call dein#add('michaeljsmith/vim-indent-object')
   " web related plugins
 	  " call dein#add('alvan/vim-closetag')
 	  " call dein#add('hail2u/vim-css3-syntax')
