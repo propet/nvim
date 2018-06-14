@@ -42,8 +42,8 @@ set expandtab
 set smartindent
 syntax enable
 syntax on
-"set number "absolute line numbers
-set number relativenumber
+set number "absolute line numbers
+" set number relativenumber "hybrid line numbering
 set ruler
 set incsearch
 set nohlsearch
