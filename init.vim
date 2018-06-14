@@ -50,6 +50,7 @@ set incsearch
 set nohlsearch
 set termguicolors
 set clipboard+=unnamedplus
+set mouse=a " allows to use the mouse. Useful to resize window splits.
 
 " mappings
 map <C-n> :NERDTreeToggle<CR>
