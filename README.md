@@ -5,6 +5,7 @@ Steps for replication, and reminder about settings and plugins.
 * install neovim for ubuntu, with all dependencies.
 * install dein manager in a **dein folder**, which lives in the same directory ($ sh ./installer.sh {specify the installation directory}). => *$ sh ./installer.sh ~/.config/nvim/dein/*
 * install deoplete, with dependencies for python and whatever language you're gonna use with it.
+  * pip install python-language-server
   * pip install jedi
   * sudo apt-get install clang libclang-dev
 * install exuberant-ctags to work with gutentags (sudo apt-get install exuberant-ctags)
@@ -15,6 +16,7 @@ Steps for replication, and reminder about settings and plugins.
 * Deoplete (for autocompletions)
   * deoplete-jedi
   * deoplete-clang
+* LanguageClient-neovim (language server protocol plugin). Allows you to use language servers that give language smartness, such as autocompletion candidates, renaming, go-to-definition, and other goodies that were only usually available in expensive IDE's.
 * vim-gutentags (generate tags file automatically in a project (git, hg, .. project))
 * vimtex (vim continuous compilation, while editin in vim). In ubuntu, required to install aditional libs: *liwsynctex-dev* and *libgtk-3-dev*. Initiate compiling with *\ll* and view the produced pdf with *\lv*, *\lt* to see the table of contents, *\le* to see the compilation errors or warnings. The rest of shorcuts are available in <a>https://github.com/lervag/vimtex/wiki/usage</a>. Install **zathura** as the pdf viewer, which has vim-like navigation.
 * ultisnips (snippets for faster coding). Directory with snippets: *snippets_ulti*. Mapped *:UltiSnipsEdit*, to *<C-^>* to create new snippets on the fly. Usage: write the abreviation in insert mode, and hit Tab. Then, you can write in the placeholders, and cycle through them, forwards or backward with <C-j> and <C-k>.
