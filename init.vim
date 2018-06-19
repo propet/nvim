@@ -10,7 +10,7 @@ if dein#load_state('~/.config/nvim/dein')
   " Add or remove you plugins here: "
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-jedi')
+  " call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('lervag/vimtex')
@@ -23,6 +23,11 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-commentary')
   call dein#add('jpalardy/vim-slime')
   call dein#add('michaeljsmith/vim-indent-object')
+  call dein#add('autozimu/LanguageClient-neovim')
+  call dein#add('autozimu/LanguageClient-neovim', {
+      \ 'rev': 'next',
+      \ 'build': 'bash install.sh',
+      \ })
   " web related plugins
 	  " call dein#add('alvan/vim-closetag')
 	  " call dein#add('hail2u/vim-css3-syntax')
@@ -117,3 +122,18 @@ let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
 let g:UltiSnipsSnippetDirectories=["snippets_ulti"]
 let g:UltiSnipsEditSplit = "vertical"
 map <C-^> :UltiSnipsEdit <CR>
+
+
+
+" Language Server Protocol (LSP) with LanguageClient-neovim plugin
+"
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+      \ 'python': ['pyls'],
+      \ }
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
