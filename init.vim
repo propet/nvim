@@ -6,11 +6,8 @@ set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
 
-  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
-  " Add or remove you plugins here: "
+  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim') " Add or remove you plugins here: " call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/deoplete.nvim')
-  " call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('lervag/vimtex')
@@ -21,7 +18,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-commentary')
-  call dein#add('jpalardy/vim-slime')
+  call dein#add('BurningEther/iron.nvim')
   call dein#add('michaeljsmith/vim-indent-object')
   call dein#add('autozimu/LanguageClient-neovim')
   call dein#add('autozimu/LanguageClient-neovim', {
@@ -74,10 +71,15 @@ let g:syntastic_python_checkers = ['python', 'flake8']
 set shell=bash
 tnoremap <C-[> <C-\><C-n>
 
-" vim-slime
-let g:slime_python_ipython = 1
-let g:slime_default_config = {"sessionname": "yo", "windowname": "bash"}  "screen
-let g:slime_dont_ask_default = 1
+" iron.nvim
+" deactivate default mappings
+let g:iron_map_defaults=0
+" define custom mappings for the python filetype
+augroup ironmapping
+  autocmd!
+  autocmd Filetype python nmap <buffer> <C-c><C-c> <Plug>(iron-send-motion)
+  autocmd Filetype python nmap <buffer> <localleader>p <Plug>(iron-repeat-cmd)
+augroup END
 
 " Beautify html/css/js
 map <C-S-f> :call JsBeautify()<cr>
