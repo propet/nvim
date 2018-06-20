@@ -57,6 +57,7 @@ set mouse=a " allows to use the mouse. Useful to resize window splits.
 " mappings
 map <C-n> :NERDTreeToggle<CR>
 
+
 " Completions
 let g:deoplete#enable_at_startup = 1
 " deoplete-clang requirements
@@ -123,7 +124,7 @@ let g:vimtex_compiler_latexmk = {
 let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
 let g:UltiSnipsSnippetDirectories=["snippets_ulti"]
 let g:UltiSnipsEditSplit = "vertical"
-map <C-^> :UltiSnipsEdit <CR>
+map <C-3> :UltiSnipsEdit <CR>
 
 
 
