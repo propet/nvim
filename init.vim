@@ -20,7 +20,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-commentary')
   call dein#add('BurningEther/iron.nvim')
   call dein#add('michaeljsmith/vim-indent-object')
-  call dein#add('autozimu/LanguageClient-neovim')
   call dein#add('autozimu/LanguageClient-neovim', {
       \ 'rev': 'next',
       \ 'build': 'bash install.sh',
