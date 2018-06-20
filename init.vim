@@ -78,15 +78,6 @@ let g:syntastic_python_checkers = ['python', 'flake8']
 set shell=bash
 tnoremap <C-[> <C-\><C-n>
 
-" iron.nvim
-" deactivate default mappings
-let g:iron_map_defaults=0
-" define custom mappings for the python filetype
-augroup ironmapping
-  autocmd!
-  autocmd Filetype python nmap <buffer> <C-c><C-c> <Plug>(iron-send-motion)
-  autocmd Filetype python nmap <buffer> <localleader>p <Plug>(iron-repeat-cmd)
-augroup END
 
 " Beautify html/css/js
 map <C-S-f> :call JsBeautify()<cr>
