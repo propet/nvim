@@ -124,7 +124,7 @@ let g:vimtex_compiler_latexmk = {
 let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
 let g:UltiSnipsSnippetDirectories=["snippets_ulti"]
 let g:UltiSnipsEditSplit = "vertical"
-map <C-3> :UltiSnipsEdit <CR>
+map gs :UltiSnipsEdit <CR>
 
 
 
