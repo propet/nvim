@@ -5,8 +5,9 @@ set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
-
-  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim') " Add or remove you plugins here: " call dein#add('Shougo/deoplete.nvim')
+  " Add or remove you plugins here: " 
+  call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim') 
+  call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-clang')
   call dein#add('ludovicchabant/vim-gutentags')
