@@ -46,12 +46,13 @@ set smartindent
 syntax enable
 syntax on
 set number "absolute line numbers
-" set number relativenumber "hybrid line numbering
+" set number relativenumber "hybrid line numbering ()
+" set scrollbind "scroll splits at the same time. For file comparing
+" set scb & set noscb  "this are the commands to turn on and off the scrollbinding
 set ruler
 set incsearch
 set nohlsearch
 set termguicolors
-set clipboard+=unnamedplus
 set mouse=a " allows to use the mouse. Useful to resize window splits.
 
 " fold settings
