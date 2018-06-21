@@ -30,8 +30,13 @@ if dein#load_state('~/.config/nvim/dein')
 	  " call dein#add('ap/vim-css-color')
 	  " call dein#add('othree/html5.vim')
 	  " call dein#add('maksimr/vim-jsbeautify')
-  " Colorscheme
-  call dein#add('mhartington/oceanic-next')
+  " Colorscheme / colors
+  call dein#add('dylanaraps/wal.vim')
+  " call dein#add('mhartington/oceanic-next')
+  colorscheme wal
+  " let g:lightline = {'colorscheme': 'one'}
+  "set background=dark
+  "set termguicolors  " activation messes up wal colorscheme
 
   call dein#end()
   call dein#save_state()
@@ -51,7 +56,6 @@ set number "absolute line numbers
 set ruler
 set incsearch
 set nohlsearch
-set termguicolors
 set mouse=a " allows to use the mouse. Useful to resize window splits.
 
 " fold settings
@@ -92,10 +96,6 @@ autocmd FileType html noremap <buffer> <C-S-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <C-S-f> :call CSSBeautify()<cr>
 
-" Visuals
-colorscheme OceanicNext
-let g:lightline = {'colorscheme': 'one'}
-"set background=dark
 
 " vimtext
 let g:vimtex_view_method = 'zathura'
