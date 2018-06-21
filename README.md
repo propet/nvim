@@ -24,7 +24,6 @@ Steps for replication, and reminder about settings and plugins.
 * iron.nvim (send your code to a REPL, according to the language you're editing. Create a new REPL with the command *IronRepl*. And send the code to the REPL with *ctr*. You can also call the previous command with *cp* (remember: call previous))
 * tpope/vim-commentary (comment lines with *gc*, and *gcc*)
 * tpope/vim-surround (change, create or remove surrounding elements like *{}*)
-* itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
 * nerdtree (show file structures) -> toogle mapped to *C-n*
 * jiangmiao/auto-pairs (when open a paraenthesis or brackets , automatically create the other)
 * michaeljsmith/vim-indent-object (add idented text object, useful for python-like idented blocks of text. cii (changes inner identation). cai (changes inner identation included the top line)).
@@ -35,7 +34,9 @@ Steps for replication, and reminder about settings and plugins.
   * othree/html5.vim
   * maksimr/vim-jsbeautify
   
-
+# Style / colors
+* itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
+* dylanaraps/wal.vim (uses the colorcheme provided by pywal, a i3wm python colorscheme generator from the wallpaper image). To use it, you shouldn't set termiguicolors in the init.vim config file.
 
 ## Also checkout:
 * for a variety of colorschemes: <a>https://github.com/rafi/awesome-vim-colorschemes</a>

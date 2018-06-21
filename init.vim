@@ -16,7 +16,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
   call dein#add('jiangmiao/auto-pairs')
-  call dein#add('itchyny/lightline.vim')
   call dein#add('tpope/vim-commentary')
   call dein#add('BurningEther/iron.nvim')
   call dein#add('michaeljsmith/vim-indent-object')
@@ -32,11 +31,13 @@ if dein#load_state('~/.config/nvim/dein')
 	  " call dein#add('maksimr/vim-jsbeautify')
   " Colorscheme / colors
   call dein#add('dylanaraps/wal.vim')
+  " call dein#add('itchyny/lightline.vim')
   " call dein#add('mhartington/oceanic-next')
   colorscheme wal
   " let g:lightline = {'colorscheme': 'one'}
-  "set background=dark
-  "set termguicolors  " activation messes up wal colorscheme
+  " set background=dark
+  " termiguicolors doesn't work with pywal theme wal
+  " set termguicolors
 
   call dein#end()
   call dein#save_state()
