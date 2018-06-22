@@ -30,9 +30,10 @@ if dein#load_state('~/.config/nvim/dein')
 	  " call dein#add('ap/vim-css-color')
 	  " call dein#add('othree/html5.vim')
 	  " call dein#add('maksimr/vim-jsbeautify')
-  " Colorscheme / colors
+  " Appearance plugins
   call dein#add('dylanaraps/wal.vim')
   " call dein#add('itchyny/lightline.vim')
+  call dein#add('vim-airline/vim-airline')
   " call dein#add('mhartington/oceanic-next')
 
   call dein#end()
