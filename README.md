@@ -34,9 +34,10 @@ Steps for replication, and reminder about settings and plugins.
   * othree/html5.vim
   * maksimr/vim-jsbeautify
   
-# Style / colors
-* itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
+# Appearance plugins
 * dylanaraps/wal.vim (uses the colorcheme provided by pywal, a i3wm python colorscheme generator from the wallpaper image). To use it, you shouldn't set termiguicolors in the init.vim config file.
+* itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
+* vim-airline/vim-airline (nice StatusLine which uses the colorscheme color by default)
 
 ## Also checkout:
 * for a variety of colorschemes: <a>https://github.com/rafi/awesome-vim-colorschemes</a>
