@@ -38,6 +38,7 @@ Steps for replication, and reminder about settings and plugins.
 * dylanaraps/wal.vim (uses the colorcheme provided by pywal, a i3wm python colorscheme generator from the wallpaper image). To use it, you shouldn't set termiguicolors in the init.vim config file.
 * itchyny/lightline.vim (a bottom bar with info, for which you can change its colorscheme independently of the text)
 * vim-airline/vim-airline (nice StatusLine which uses the colorscheme color by default)
+* junegunn/goyo.vim (removes distraction elements. get a minimalist view of your code. ricing-related). Usage: *:Goyo* toogles the mode on and off.
 
 ## Also checkout:
 * for a variety of colorschemes: <a>https://github.com/rafi/awesome-vim-colorschemes</a>

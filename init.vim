@@ -32,6 +32,7 @@ if dein#load_state('~/.config/nvim/dein')
 	  " call dein#add('maksimr/vim-jsbeautify')
   " Appearance plugins
   call dein#add('dylanaraps/wal.vim')
+  call dein#add('junegunn/goyo.vim')
   " call dein#add('itchyny/lightline.vim')
   call dein#add('vim-airline/vim-airline')
   " call dein#add('mhartington/oceanic-next')
