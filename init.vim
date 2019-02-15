@@ -10,7 +10,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim') 
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-clang')
-  call dein#add('ludovicchabant/vim-gutentags')
+  " call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('lervag/vimtex')
   call dein#add('SirVer/ultisnips')
   call dein#add('scrooloose/syntastic')
@@ -55,6 +55,8 @@ set ruler
 set incsearch
 set nohlsearch
 set mouse=a " allows to use the mouse. Useful to resize window splits.
+" fast buffer switching listing all possibilities beforehand
+nnoremap <Leader>b :ls<Cr>:b<Space>  
 
 " Colorscheme / colors
 colorscheme wal
