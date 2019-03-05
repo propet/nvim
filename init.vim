@@ -8,22 +8,22 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
   " Add or remove you plugins here: " 
   call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim') 
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-clang')
-  " call dein#add('ludovicchabant/vim-gutentags')
-  call dein#add('lervag/vimtex')
-  call dein#add('SirVer/ultisnips')
-  call dein#add('scrooloose/syntastic')
-  call dein#add('tpope/vim-surround')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('jiangmiao/auto-pairs')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('BurningEther/iron.nvim')
-  call dein#add('michaeljsmith/vim-indent-object')
   call dein#add('autozimu/LanguageClient-neovim', {
       \ 'rev': 'next',
       \ 'build': 'bash install.sh',
       \ })
+  call dein#add('Shougo/deoplete.nvim')
+  " call dein#add('zchee/deoplete-clang')
+  " call dein#add('ludovicchabant/vim-gutentags')
+  call dein#add('lervag/vimtex')
+  call dein#add('SirVer/ultisnips')
+  " call dein#add('scrooloose/syntastic')
+  call dein#add('tpope/vim-surround')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('jiangmiao/auto-pairs')
+  call dein#add('tpope/vim-commentary')
+  " call dein#add('BurningEther/iron.nvim')  "REPL
+  call dein#add('michaeljsmith/vim-indent-object')
   " web related plugins
 	  " call dein#add('alvan/vim-closetag')
 	  " call dein#add('hail2u/vim-css3-syntax')
@@ -57,6 +57,9 @@ set nohlsearch
 set mouse=a " allows to use the mouse. Useful to resize window splits.
 " fast buffer switching listing all possibilities beforehand
 nnoremap <Leader>b :ls<Cr>:b<Space>  
+" terminal
+set shell=bash
+tnoremap <C-[> <C-\><C-n>
 
 " Colorscheme / colors
 colorscheme wal
@@ -80,19 +83,8 @@ set foldlevel=2
 map <C-n> :NERDTreeToggle<CR>
 
 
-" Completions
-let g:deoplete#enable_at_startup = 1
-" deoplete-clang requirements
-let g:deoplete#sources#clang#libclang_path = "/usr/lib/llvm-4.0/lib/libclang.so"
-let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
-
-
 " Syntastic
-let g:syntastic_python_checkers = ['python', 'flake8']
-
-" terminal
-set shell=bash
-tnoremap <C-[> <C-\><C-n>
+" let g:syntastic_python_checkers = ['python', 'flake8']
 
 
 " Beautify html/css/js
@@ -110,24 +102,24 @@ autocmd FileType css noremap <buffer> <C-S-f> :call CSSBeautify()<cr>
 
 
 " vimtext
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_quickfix_mode=0
-let g:vimtex_compiler_latexmk = {
-        \ 'backend' : 'nvim',
-        \ 'background' : 1,
-        \ 'build_dir' : '',
-        \ 'callback' : 1,
-        \ 'continuous' : 1,
-        \ 'executable' : 'latexmk',
-        \ 'options' : [
-        \   '-pdf',
-        \   '-verbose',
-        \   '-file-line-error',
-        \   '-synctex=1',
-        \   '-interaction=nonstopmode',
-        \   '--shell-escape',
-        \ ],
-        \}
+" let g:vimtex_view_method = 'zathura'
+" let g:vimtex_quickfix_mode=0
+" let g:vimtex_compiler_latexmk = {
+"         \ 'backend' : 'nvim',
+"         \ 'background' : 1,
+"         \ 'build_dir' : '',
+"         \ 'callback' : 1,
+"         \ 'continuous' : 1,
+"         \ 'executable' : 'latexmk',
+"         \ 'options' : [
+"         \   '-pdf',
+"         \   '-verbose',
+"         \   '-file-line-error',
+"         \   '-synctex=1',
+"         \   '-interaction=nonstopmode',
+"         \   '--shell-escape',
+"         \ ],
+"         \}
 
 " ULtiSnips
 let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
@@ -136,6 +128,12 @@ let g:UltiSnipsEditSplit = "vertical"
 map gs :UltiSnipsEdit <CR>
 
 
+" Completions
+let g:deoplete#enable_at_startup = 1
+" deoplete-clang requirements
+" let g:deoplete#sources#clang#libclang_path = "/usr/lib/llvm-4.0/lib/libclang.so"
+" let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
+
 
 " Language Server Protocol (LSP) with LanguageClient-neovim plugin
 "
@@ -143,9 +141,27 @@ map gs :UltiSnipsEdit <CR>
 set hidden
 
 let g:LanguageClient_serverCommands = {
-      \ 'python': ['pyls'],
+      \ 'python': ['/home/luis/anaconda3/bin/pyls'],
+      \ 'cpp': ['/usr/bin/clangd-7'],
+      \ 'c': ['/usr/bin/clangd-7'],
       \ }
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+" Autocompletion Configurations
+let g:deoplete#enable_at_startup = 1
+
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
