@@ -24,6 +24,10 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('tpope/vim-commentary')
   " call dein#add('BurningEther/iron.nvim')  "REPL
   call dein#add('michaeljsmith/vim-indent-object')
+  " markdown stuff
+  call dein#add('ferrine/md-img-paste.vim')
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'cd app & yarn install' })
   " web related plugins
 	  " call dein#add('alvan/vim-closetag')
 	  " call dein#add('hail2u/vim-css3-syntax')
@@ -61,6 +65,14 @@ nnoremap <Leader>b :ls<Cr>:b<Space>
 set shell=bash
 tnoremap <C-[> <C-\><C-n>
 
+
+" markdown create image from clipboard
+autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" there are some defaults for image directory and image name, you can change them
+" let g:mdip_imgdir = 'img'
+" let g:mdip_imgname = 'image'
+
+
 " Colorscheme / colors
 colorscheme wal
 " hi StatusLine ctermbg=NONE cterm=NONE  "transparent status line
@@ -88,17 +100,17 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 " Beautify html/css/js
-map <C-S-f> :call JsBeautify()<cr>
-" or
-autocmd FileType javascript noremap <buffer>  <C-S-f> :call JsBeautify()<cr>
-" for json
-autocmd FileType json noremap <buffer> <C-S-f> :call JsonBeautify()<cr>
-" for jsx
-autocmd FileType jsx noremap <buffer> <C-S-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <C-S-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <C-S-f> :call CSSBeautify()<cr>
+" map <C-S-f> :call JsBeautify()<cr>
+" " or
+" autocmd FileType javascript noremap <buffer>  <C-S-f> :call JsBeautify()<cr>
+" " for json
+" autocmd FileType json noremap <buffer> <C-S-f> :call JsonBeautify()<cr>
+" " for jsx
+" autocmd FileType jsx noremap <buffer> <C-S-f> :call JsxBeautify()<cr>
+" " for html
+" autocmd FileType html noremap <buffer> <C-S-f> :call HtmlBeautify()<cr>
+" " for css or scss
+" autocmd FileType css noremap <buffer> <C-S-f> :call CSSBeautify()<cr>
 
 
 " vimtext
