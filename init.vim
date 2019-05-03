@@ -13,6 +13,7 @@ if dein#load_state('~/.config/nvim/dein')
       \ 'build': 'bash install.sh',
       \ })
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('skywind3000/asyncrun.vim')
   " call dein#add('zchee/deoplete-clang')
   " call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('lervag/vimtex')
