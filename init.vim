@@ -13,9 +13,11 @@ if dein#load_state('~/.config/nvim/dein')
       \ 'build': 'bash install.sh',
       \ })
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('skywind3000/asyncrun.vim')
+  " call dein#add('skywind3000/asyncrun.vim')
   " call dein#add('zchee/deoplete-clang')
   " call dein#add('ludovicchabant/vim-gutentags')
+  " call dein#add('kassio/neoterm')
+  " call dein#add('neomake/neomake')
   call dein#add('lervag/vimtex')
   call dein#add('SirVer/ultisnips')
   " call dein#add('scrooloose/syntastic')
@@ -184,6 +186,32 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 " One key compilation and execution
 " Note: % is the current buffer filename. %:r is the buffer filename without extension 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
-autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+" autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
+" autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+" autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+""""""""""""
+" AsyncRun "
+""""""""""""
+" " automatically open quickfix window when AsyncRun command is executed
+" " set the quickfix window 6 lines height.
+" let g:asyncrun_open = 6
+
+" " ring the bell to notify you job finished
+" let g:asyncrun_bell = 1
+
+" " F10 to toggle quickfix window
+" nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+
+" " Find root directory where you should have the make or cmake file
+" let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
+
+" " Make shortcut
+" nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
+"
+
+"""""""""""
+" Neomake "
+"""""""""""
+" open the list automatically
+" let g:neomake_open_list = 2
