@@ -23,6 +23,7 @@ if dein#load_state('~/.config/nvim/dein')
   " call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tpope/vim-commentary')
   " call dein#add('BurningEther/iron.nvim')  "REPL
@@ -215,3 +216,11 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 """""""""""
 " open the list automatically
 " let g:neomake_open_list = 2
+
+
+"""""""""""""
+" Control P
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+"""""""""""""
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
