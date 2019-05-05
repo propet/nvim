@@ -7,7 +7,7 @@ Steps for replication, and reminder about settings and plugins.
 * Install LanguageClient-neovim. Install language servers, and configure LanguageClient-neovim so it targets the language server paths.
 
 ## Packages used:
-* [Dein](https://github.com/Shougo/dein.vim). Package manager. Alternatives would be: [vim-plug](junegunn/vim-plug).
+* [Dein](https://github.com/Shougo/dein.vim). Package manager. Alternatives would be: [vim-plug](junegunn/vim-plug), or [minpac](https://github.com/k-takata/minpac).
 * [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim). Allows you to use language servers that give language smartness, such as autocompletion candidates, renaming, go-to-definition, and other goodies that were only usually available in expensive IDE's. You can find language-servers in http://langserver.org/
 * [Deoplete](https://github.com/Shougo/deoplete.nvim)(for autocompletions)
 * [neoterm](https://github.com/kassio/neoterm). Wrapper on neo(vim) terminal. Send commands to the terminals. Allows for a better REPL experience, and automate the running of commands from your text buffer (like `nnoremap <F5> :T make`, which will run make in the terminal). From a plain buffer, open a terminal with `:bot Tnew`, and then run some command to it like `:T echo "Hola mundo"`. To interact with a REPL, you can press `<leader>2`, and that will paste your current line, or selection to the REPL.
