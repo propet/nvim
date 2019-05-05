@@ -42,6 +42,8 @@ filetype plugin indent on
 set shiftwidth=2
 set expandtab
 set smartindent
+set ignorecase
+set smartcase
 syntax enable
 syntax on
 set number "absolute line numbers
@@ -51,8 +53,6 @@ set ruler
 set incsearch
 set nohlsearch
 set mouse=a " allows to use the mouse. Useful to resize window splits.
-" fast buffer switching listing all possibilities beforehand
-nnoremap <Leader>b :ls<Cr>:b<Space>  
 " terminal
 set shell=bash
 tnoremap <C-[> <C-\><C-n>
@@ -175,3 +175,4 @@ let g:neoterm_size = 16        "default would take 50% of neovim window
 """""""""""""
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+nnoremap <leader>b :CtrlPBuffer<CR>
