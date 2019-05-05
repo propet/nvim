@@ -13,31 +13,19 @@ if dein#load_state('~/.config/nvim/dein')
       \ 'build': 'bash install.sh',
       \ })
   call dein#add('Shougo/deoplete.nvim')
-  " call dein#add('skywind3000/asyncrun.vim')
-  " call dein#add('zchee/deoplete-clang')
-  " call dein#add('ludovicchabant/vim-gutentags')
-  " call dein#add('kassio/neoterm')
-  " call dein#add('neomake/neomake')
+  call dein#add('kassio/neoterm')
   call dein#add('lervag/vimtex')
   call dein#add('SirVer/ultisnips')
-  " call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tpope/vim-commentary')
-  " call dein#add('BurningEther/iron.nvim')  "REPL
   call dein#add('michaeljsmith/vim-indent-object')
   " markdown stuff
   call dein#add('ferrine/md-img-paste.vim')
   call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
 					\ 'build': 'cd app & yarn install' })
-  " web related plugins
-	  " call dein#add('alvan/vim-closetag')
-	  " call dein#add('hail2u/vim-css3-syntax')
-	  " call dein#add('ap/vim-css-color')
-	  " call dein#add('othree/html5.vim')
-	  " call dein#add('maksimr/vim-jsbeautify')
   " Appearance plugins
   call dein#add('dylanaraps/wal.vim')
   call dein#add('junegunn/goyo.vim')
@@ -98,25 +86,6 @@ set foldlevel=2
 " mappings
 map <C-n> :NERDTreeToggle<CR>
 
-
-" Syntastic
-" let g:syntastic_python_checkers = ['python', 'flake8']
-
-
-" Beautify html/css/js
-" map <C-S-f> :call JsBeautify()<cr>
-" " or
-" autocmd FileType javascript noremap <buffer>  <C-S-f> :call JsBeautify()<cr>
-" " for json
-" autocmd FileType json noremap <buffer> <C-S-f> :call JsonBeautify()<cr>
-" " for jsx
-" autocmd FileType jsx noremap <buffer> <C-S-f> :call JsxBeautify()<cr>
-" " for html
-" autocmd FileType html noremap <buffer> <C-S-f> :call HtmlBeautify()<cr>
-" " for css or scss
-" autocmd FileType css noremap <buffer> <C-S-f> :call CSSBeautify()<cr>
-
-
 " vimtext
 " let g:vimtex_view_method = 'zathura'
 " let g:vimtex_quickfix_mode=0
@@ -144,13 +113,6 @@ let g:UltiSnipsEditSplit = "vertical"
 map gs :UltiSnipsEdit <CR>
 
 
-" Completions
-let g:deoplete#enable_at_startup = 1
-" deoplete-clang requirements
-" let g:deoplete#sources#clang#libclang_path = "/usr/lib/llvm-4.0/lib/libclang.so"
-" let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
-
-
 " Language Server Protocol (LSP) with LanguageClient-neovim plugin
 "
 " Required for operations modifying multiple buffers like rename.
@@ -164,10 +126,8 @@ let g:LanguageClient_serverCommands = {
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
-
 " Autocompletion Configurations
 let g:deoplete#enable_at_startup = 1
-
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
@@ -192,31 +152,12 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 " autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 """"""""""""
-" AsyncRun "
+" Neoterm
 """"""""""""
-" " automatically open quickfix window when AsyncRun command is executed
-" " set the quickfix window 6 lines height.
-" let g:asyncrun_open = 6
-
-" " ring the bell to notify you job finished
-" let g:asyncrun_bell = 1
-
-" " F10 to toggle quickfix window
-" nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-
-" " Find root directory where you should have the make or cmake file
-" let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
-
-" " Make shortcut
-" nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
-"
-
-"""""""""""
-" Neomake "
-"""""""""""
-" open the list automatically
-" let g:neomake_open_list = 2
-
+" Building
+autocmd filetype c nnoremap <F7> :T make<CR>
+autocmd filetype c nnoremap <F8> :T make run<CR>
+autocmd filetype cpp nnoremap <F7> :T make<CR>
 
 """""""""""""
 " Control P

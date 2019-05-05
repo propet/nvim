@@ -13,17 +13,13 @@ Steps for replication, and reminder about settings and plugins.
 
 
 ## Packages used:
-* [Dein](https://github.com/Shougo/dein.vim)
+* [Dein](https://github.com/Shougo/dein.vim). Package manager. Alternatives would be: [vim-plug](junegunn/vim-plug).
 * [Deoplete](https://github.com/Shougo/deoplete.nvim)(for autocompletions)
-  * deoplete-jedi
-  * deoplete-clang
 * [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim). Allows you to use language servers that give language smartness, such as autocompletion candidates, renaming, go-to-definition, and other goodies that were only usually available in expensive IDE's. You can find language-servers in http://langserver.org/
-> * [AsyncRun](https://github.com/skywind3000/asyncrun.vim). Allows you to run commands in the background. Then it shows its output in the quickfix window. Remember you need to open it with :copen (:cclose to close) before you can see anything.
-> * vim-gutentags (generate tags file automatically in a project (git, hg, .. project))
+* [neoterm](https://github.com/kassio/neoterm). Wrapper on neo(vim) terminal. Send commands to the terminals. Allows for a better REPL experience, and automate the running of commands from your text buffer (like `nnoremap <F5> :T make`, which will run make in the terminal). From a plain buffer, open a terminal with `:bot Tnew`, and then run some command to it like `:T echo "Hola mundo"`. Interacting with a REPL is as easy as copying from for buffer and pasting with `<C-0>` after `:T `.
 * [vimtex](https://github.com/lervag/vimtex)(vim continuous compilation, while editin in vim). In ubuntu, required to install aditional libs: *liwsynctex-dev* and *libgtk-3-dev*. Initiate compiling with *\ll* and view the produced pdf with *\lv*, *\lt* to see the table of contents, *\le* to see the compilation errors or warnings. The rest of shorcuts are available in <a>https://github.com/lervag/vimtex/wiki/usage</a>. Install **zathura** as the pdf viewer, which has vim-like navigation.
 * [ultisnips](https://github.com/sirver/UltiSnips)(snippets for faster coding). Directory with snippets: *snippets_ulti*. Mapped *:UltiSnipsEdit*, to *gs* to create new snippets on the fly. Usage: write the abreviation in insert mode, and hit Tab. Then, you can write in the placeholders, and cycle through them, forwards or backward with <C-j> and <C-k>.
 * [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)(Full path fuzzy file, buffer, mru, tag, ... finder for Vim.) Written in pure vimscript
-* [iron.vim](https://github.com/Vigemus/iron.nvim)(send your code to a REPL, according to the language you're editing. Create a new REPL with the command *IronRepl*. And send the code to the REPL with *ctr*. You can also call the previous command with *cp* (remember: call previous))
 * [vim-commentary](https://github.com/tpope/vim-commentary)(comment lines with *gc*, and *gcc*)
 * [vim-surround](https://github.com/tpope/vim-surround)(change, create or remove surrounding elements like *{}*)
 * [nerdtree](https://github.com/scrooloose/nerdtree)(show file structures) -> toogle mapped to *C-n*
@@ -38,6 +34,10 @@ Steps for replication, and reminder about settings and plugins.
   * ap/vim-css-color
   * othree/html5.vim
   * maksimr/vim-jsbeautify
+
+> * [vim-dispatch](https://github.com/tpope/vim-dispatch). Allows you to compile asyncronously with :Make! <target> (you'd need to then open the quickfix window :copen). *don't really need it now with neoterm*
+> * [iron.vim](https://github.com/Vigemus/iron.nvim)(send your code to a REPL, according to the language you're editing. Create a new REPL with the command *IronRepl*. And send the code to the REPL with *ctr*. You can also call the previous command with *cp* (remember: call previous)) *don't really need it now with neoterm*
+> * vim-gutentags (generate tags file automatically in a project (git, hg, .. project)). *don't really need it now with LanguageClient*
   
 # Appearance plugins
 * [wal.vim](https://github.com/dylanaraps/wal.vim)(uses the colorcheme provided by pywal, a i3wm python colorscheme generator from the wallpaper image). To use it, you shouldn't set termiguicolors in the init.vim config file.
