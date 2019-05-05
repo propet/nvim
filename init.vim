@@ -158,6 +158,7 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 autocmd filetype c nnoremap <F7> :T make<CR>
 autocmd filetype c nnoremap <F8> :T make run<CR>
 autocmd filetype cpp nnoremap <F7> :T make<CR>
+nnoremap <C-L> :Tclear
 
 """""""""""""
 " Control P
