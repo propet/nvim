@@ -1,3 +1,9 @@
+## TODO
+* Use a portable LSP client, for linux and windows (Stay tunned for the future built-in neovim LSP server).
+* Figure out how to easily use new language servers. Could you keep them locally in this `nvim` folder?
+
+
+
 # My neovim config files
 My configuration for the neovim editor, in *~/.config/nvim* folder.
 Steps for replication, and reminder about settings and plugins.
