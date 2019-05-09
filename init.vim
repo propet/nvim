@@ -47,6 +47,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#save_state()
 endif
 
+
 " basics
 filetype plugin indent on
 set shiftwidth=2
@@ -68,6 +69,10 @@ set shell=bash
 tnoremap <C-[> <C-\><C-n>
 
 
+" filetype dependent identation
+autocmd FileType c setlocal shiftwidth=8 softtabstop=8 expandtab
+
+
 " markdown create image from clipboard
 autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " there are some defaults for image directory and image name, you can change them
@@ -80,7 +85,6 @@ autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardIm
 " lucid, happy_hacking]
 let mi_colorscheme = "happy_hacking"
 " let g:lightline = {'colorscheme': 'one'}
-
 if mi_colorscheme != "wal"
   execute 'color' mi_colorscheme
   set termguicolors
@@ -97,8 +101,10 @@ set foldnestmax=10
 set nofoldenable "makes sure that when opening, files are "normal", i.e. not folded
 set foldlevel=2
 
+
 " mappings
 map <C-n> :NERDTreeToggle<CR>
+
 
 " vimtext
 " let g:vimtex_view_method = 'zathura'
@@ -120,6 +126,7 @@ map <C-n> :NERDTreeToggle<CR>
 "         \ ],
 "         \}
 
+
 " ULtiSnips
 let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
 let g:UltiSnipsSnippetDirectories=["snippets_ulti"]
@@ -128,7 +135,6 @@ map gs :UltiSnipsEdit <CR>
 
 
 " Language Server Protocol (LSP) with LanguageClient-neovim plugin
-"
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
@@ -137,7 +143,6 @@ let g:LanguageClient_serverCommands = {
       \ 'cpp': ['/usr/bin/clangd-7'],
       \ 'c': ['/usr/bin/clangd-7'],
       \ }
-
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 " Autocompletion Configurations
@@ -165,6 +170,7 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 " autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 " autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
+
 """"""""""""
 " Neoterm
 """"""""""""
@@ -180,7 +186,7 @@ vnoremap <Leader>2 :TREPLSendSelection<CR>
 
 " Other
 let g:neoterm_autoscroll = '1' "autoscroll terminal output
-let g:neoterm_size = 16        "default would take 50% of neovim window
+let g:neoterm_size = 10        "default would take 50% of neovim window
 
 
 """""""""""""

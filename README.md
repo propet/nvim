@@ -3,7 +3,6 @@
 * Figure out how to easily use new language servers. Could you keep them locally in this `nvim` folder?
 
 
-
 # My neovim config files
 My configuration for the neovim editor, in *~/.config/nvim* folder.
 Steps for replication, and reminder about settings and plugins.
@@ -41,3 +40,7 @@ Steps for replication, and reminder about settings and plugins.
 
 ## Also checkout:
 * for a variety of colorschemes: <a>https://github.com/rafi/awesome-vim-colorschemes</a>
+
+
+# Tips
+* [Change vim identation behaviour by file type](https://stackoverflow.com/questions/158968/changing-vim-indentation-behavior-by-file-type)
