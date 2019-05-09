@@ -51,7 +51,7 @@ endif
 " basics
 filetype plugin indent on
 set shiftwidth=2
-set colorcolumn=80
+set colorcolumn=81  " 80 is the limit
 set expandtab
 set smartindent
 set ignorecase
