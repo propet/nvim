@@ -71,7 +71,7 @@ tnoremap <C-[> <C-\><C-n>
 
 
 " filetype dependent identation
-autocmd FileType c setlocal shiftwidth=8 softtabstop=8 expandtab
+autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
 
 
 " markdown create image from clipboard
@@ -182,12 +182,12 @@ autocmd filetype cpp nnoremap <F7> :T make<CR>
 nnoremap <C-L> :Tclear<CR>
 
 " REPL shortcuts
-nnoremap <Leader>2 :TREPLSendLine<CR>
-vnoremap <Leader>2 :TREPLSendSelection<CR>
+nnoremap <C-c><C-C> :TREPLSendLine<CR>
+vnoremap <C-c><C-C> :TREPLSendSelection<CR>
 
 " Other
 let g:neoterm_autoscroll = '1' "autoscroll terminal output
-let g:neoterm_size = 10        "default would take 50% of neovim window
+" let g:neoterm_size = 10        "default would take 50% of neovim window
 
 
 """""""""""""

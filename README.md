@@ -1,4 +1,10 @@
 ## TODO
+* Setup haskell support (haskell LSP or haskell-vim plugin). The workflow will be editing in vim, then changing to the terminal and do a quick `:r` to reload the files you've loaded with `:l`.  
+https://github.com/ndmitchell/ghcid supports auto reloading GHCi upon file changes.  
+For example: ghcid '--command=stack ghci' --test=main  
+also see the ghci neovim plugin `ndmitchell/ghcid`
+
+
 * Use a portable LSP client, for linux and windows (Stay tunned for the future built-in neovim LSP server).
 * Figure out how to easily use new language servers. Could you keep them locally in this `nvim` folder?
 
