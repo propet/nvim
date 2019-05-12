@@ -127,7 +127,6 @@ map <C-n> :NERDTreeToggle<CR>
 "         \ ],
 "         \}
 
-
 " ULtiSnips
 let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
 let g:UltiSnipsSnippetDirectories=["snippets_ulti"]
@@ -140,10 +139,14 @@ map gs :UltiSnipsEdit <CR>
 set hidden
 
 let g:LanguageClient_serverCommands = {
-      \ 'python': ['/home/luis/anaconda3/bin/pyls'],
-      \ 'cpp': ['/usr/bin/clangd-7'],
-      \ 'c': ['/usr/bin/clangd-7'],
+      \ 'python': ['~/.config/nvim/lsp/pyls'],
+      \ 'cpp': ['~/.config/nvim/lsp/clangd'],  
+      \ 'c': ['~/.config/nvim/lsp/clangd'],   
       \ }
+      " \ 'python': ['/home/luis/anaconda3/bin/pyls'],
+      " \ 'cpp': ['/usr/bin/clangd-7']
+      " \ 'c': ['/usr/bin/clangd-7']
+      
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 " Autocompletion Configurations
