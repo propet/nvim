@@ -12,6 +12,8 @@ if dein#load_state('~/.config/nvim/dein')
       \ 'rev': 'next',
       \ 'build': 'bash install.sh',
       \ })
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('neovimhaskell/haskell-vim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('kassio/neoterm')
@@ -19,7 +21,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('SirVer/ultisnips')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('ctrlpvim/ctrlp.vim')
+  " call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tpope/vim-commentary')
   call dein#add('michaeljsmith/vim-indent-object')
@@ -194,16 +196,61 @@ let g:neoterm_autoscroll = '1' "autoscroll terminal output
 " let g:neoterm_size = 10        "default would take 50% of neovim window
 
 
-"""""""""""""
-" Control P
-" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-"""""""""""""
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-nnoremap <leader>b :CtrlPBuffer<CR>
+""""""""""""""""""""
+" FZF (Fuzzy Finder)
+""""""""""""""""""""
+let g:FZF = '<c-p>'
+nnoremap <leader>b :Buffers<CR>
+nmap <leader>f :Ag<CR>
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Bat: https://github.com/sharkdp/bat
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
+""""""""""""""""""""""
 " haskell-vim plugin
+""""""""""""""""""""""
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
 let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
