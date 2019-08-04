@@ -179,7 +179,8 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 " Building
 autocmd filetype c nnoremap <F7> :T make<CR>
 autocmd filetype c nnoremap <F8> :T make run<CR>
-autocmd filetype cpp nnoremap <F7> :T make<CR>
+autocmd filetype cpp nnoremap <F7> :T cmake .. && make<CR>
+autocmd filetype cpp nnoremap <F8> :T cd ../bin && ./$(ls) && cd -<CR>
 nnoremap <C-L> :Tclear<CR>
 
 " REPL shortcuts
@@ -188,7 +189,7 @@ vnoremap <C-c><C-C> :TREPLSendSelection<CR>
 
 " Other
 let g:neoterm_autoscroll = '1' "autoscroll terminal output
-" let g:neoterm_size = 10        "default would take 50% of neovim window
+let g:neoterm_size = 10        "default would take 50% of neovim window
 
 
 """"""""""""""""""""
