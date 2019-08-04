@@ -14,14 +14,15 @@ if dein#load_state('~/.config/nvim/dein')
       \ })
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  " call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('neovimhaskell/haskell-vim')
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/echodoc.vim')
   call dein#add('kassio/neoterm')
   call dein#add('lervag/vimtex')
   call dein#add('SirVer/ultisnips')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
-  " call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tpope/vim-commentary')
   call dein#add('michaeljsmith/vim-indent-object')
@@ -138,30 +139,33 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
       \ 'python': ['~/.config/nvim/lsp/pyls'],
-      \ 'cpp': ['~/.config/nvim/lsp/clangd'],  
+      \ 'cpp': ['/usr/bin/clangd-8'],  
       \ 'c': ['~/.config/nvim/lsp/clangd'],   
       \ }
+      " \ 'cpp': ['~/.config/nvim/lsp/clangd'],  
       " \ 'python': ['/home/luis/anaconda3/bin/pyls'],
       " \ 'cpp': ['/usr/bin/clangd-7']
       " \ 'c': ['/usr/bin/clangd-7']
       
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+""""""""""""""""""""""""""""""""""
 " Autocompletion Configurations
+""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+" echodoc shows function parameters while you're writing its arguments
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+highlight link EchoDocFloat Pmenu
+
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
