@@ -27,7 +27,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('michaeljsmith/vim-indent-object')
   
   " markdown stuff
-  call dein#add('ferrine/md-img-paste.vim')
   call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
 					\ 'build': 'cd app & yarn install' })
   " Colorschemes
@@ -71,17 +70,13 @@ set mouse=a " allows to use the mouse. Useful to resize window splits.
 " terminal
 set shell=bash
 tnoremap <C-[> <C-\><C-n>
+nnoremap <leader>s :%!bash<CR>
+vnoremap <Leader>s :!bash<CR>
 
 
 " filetype dependent identation
 autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
 
-
-" markdown create image from clipboard
-autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-" there are some defaults for image directory and image name, you can change them
-" let g:mdip_imgdir = 'img'
-" let g:mdip_imgname = 'image'
 
 
 " Colorscheme / colors
@@ -258,3 +253,51 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+
+
+" markdown create image from clipboard
+" autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" there are some defaults for image directory and image name, you can change them
+" let g:mdip_imgdir = 'img'
+" let g:mdip_imgname = 'image'
+autocmd FileType markdown nmap <silent> <leader>p :call SaveFile()<cr>
+
+function! SaveFile() abort
+  let targets = filter(
+        \ systemlist('xclip -selection clipboard -t TARGETS -o'),
+        \ 'v:val =~# ''image''')
+  if empty(targets) | return | endif
+
+  let outdir = expand('%:p:h') . '/img'
+  if !isdirectory(outdir)
+    call mkdir(outdir)
+  endif
+
+  let mimetype = targets[0]
+  let extension = split(mimetype, '/')[-1]
+  let tmpfile = outdir . '/savefile_tmp.' . extension
+  call system(printf('xclip -selection clipboard -t %s -o > %s',
+        \ mimetype, tmpfile))
+
+  let cnt = 0
+  let filename = outdir . '/image' . cnt . '.' . extension
+  while filereadable(filename)
+    call system('diff ' . tmpfile . ' ' . filename)
+    if !v:shell_error
+      call delete(tmpfile)
+      break
+    endif
+
+    let cnt += 1
+    let filename = outdir . '/image' . cnt . '.' . extension
+  endwhile
+
+  if filereadable(tmpfile)
+    call rename(tmpfile, filename)
+  endif
+
+  let @* = '![Picture](' . fnamemodify(filename, ':.') . ')'
+  normal! "*p
+endfunction
+
