@@ -184,7 +184,7 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 autocmd filetype c nnoremap <F7> :T make<CR>
 autocmd filetype c nnoremap <F8> :T make run<CR>
 autocmd filetype cpp nnoremap <F7> :T cmake .. && make<CR>
-autocmd filetype cpp nnoremap <F8> :T cd ../bin && ./$(ls) && cd -<CR>
+autocmd filetype cpp nnoremap <F8> :T ../bin/$(ls ../bin)<CR>
 nnoremap <C-L> :Tclear<CR>
 
 " REPL shortcuts
