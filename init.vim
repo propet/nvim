@@ -199,7 +199,8 @@ let g:neoterm_size = 10        "default would take 50% of neovim window
 """"""""""""""""""""
 " FZF (Fuzzy Finder)
 """"""""""""""""""""
-let g:FZF = '<c-p>'
+" let g:FZF = '<c-p>'
+nnoremap <c-p> :FZF<CR>
 nnoremap <leader>b :Buffers<CR>
 nmap <leader>f :Ag<CR>
 
