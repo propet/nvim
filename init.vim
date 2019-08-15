@@ -75,9 +75,16 @@ nnoremap <leader>s :%!bash<CR>
 vnoremap <Leader>s :!bash<CR>
 
 
-" filetype dependent identation
-autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
-
+" Autocommands for some filetypes
+augroup filetypes
+  autocmd!
+  " filetype dependent identation
+  " markdown create image from clipboard
+  " autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+  " there are some defaults for image directory and image name, you can change them
+  autocmd FileType markdown nmap <silent> <leader>p :call SaveFile()<cr>
+  autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
+augroup END
 
 
 " Colorscheme / colors
@@ -104,7 +111,10 @@ set foldlevel=2
 
 " mappings
 map <C-n> :NERDTreeToggle<CR>
-
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <M-<> <C-W><
+nnoremap <M->> <C-W>>
 
 " vimtext
 " let g:vimtex_view_method = 'zathura'
@@ -168,23 +178,16 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" One key compilation and execution
-" Note: % is the current buffer filename. %:r is the buffer filename without extension 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
-" autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-" autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-
-
 """"""""""""
 " Neoterm
 """"""""""""
-" Building
-autocmd filetype c nnoremap <F7> :T make<CR>
-autocmd filetype c nnoremap <F8> :T make run<CR>
-autocmd filetype cpp nnoremap <F7> :T cmake .. && make<CR>
-autocmd filetype cpp nnoremap <F8> :T ../bin/$(ls ../bin)<CR>
+augroup neoterm
+  autocmd!
+  autocmd filetype c nnoremap <F7> :T make<CR>
+  autocmd filetype c nnoremap <F8> :T make run<CR>
+  autocmd filetype cpp nnoremap <F7> :T cmake .. && make<CR>
+  autocmd filetype cpp nnoremap <F8> :T ../bin/$(ls ../bin)<CR>
+augroup END
 nnoremap <C-L> :Tclear<CR>
 
 " REPL shortcuts
@@ -262,13 +265,11 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 
 
 
-" markdown create image from clipboard
-" autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-" there are some defaults for image directory and image name, you can change them
-" let g:mdip_imgdir = 'img'
-" let g:mdip_imgname = 'image'
-autocmd FileType markdown nmap <silent> <leader>p :call SaveFile()<cr>
+"""""""""""""""
+" Functions
+"""""""""""""""
 
+" Markdown save file function
 function! SaveFile() abort
   let targets = filter(
         \ systemlist('xclip -selection clipboard -t TARGETS -o'),
@@ -306,4 +307,3 @@ function! SaveFile() abort
   let @* = '![Picture](' . fnamemodify(filename, ':.') . ')'
   normal! "*p
 endfunction
-
