@@ -68,6 +68,7 @@ set ruler
 set incsearch
 set nohlsearch
 set mouse=a " allows to use the mouse. Useful to resize window splits.
+
 " terminal
 set shell=bash
 tnoremap <C-[> <C-\><C-n>
@@ -120,10 +121,15 @@ endif
 " Mappings and snippets -------- {{{
 " mappings
 map <C-n> :NERDTreeToggle<CR>
+" edit and load your vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" resize windows
 nnoremap <M-<> <C-W><
 nnoremap <M->> <C-W>>
+" easy quicklist navigation (shift-F11 and shift-F12)
+nnoremap <F23> :cprev<cr>
+nnoremap <F24> :cnext<cr>
 
 " ULtiSnips
 let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets_ulti"
